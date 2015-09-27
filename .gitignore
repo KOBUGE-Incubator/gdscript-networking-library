@@ -1,0 +1,8 @@
+# Dolphin generates this file, not needed
+.directory
+
+# Some text editors
+*~
+
+# Temporary test-related files
+tmp.*
