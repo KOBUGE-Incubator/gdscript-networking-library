@@ -1,15 +1,12 @@
 
 extends Control
 
-var server
-var client
+var server = preload("res://lib/tcp/server.gd").new()
+var client = preload("res://lib/tcp/client.gd").new()
 
 var client_on = false
 
 func _ready():
-	server = load("res://server.gd").new()
-	client = load("res://client.gd").new()
-	
 	server.connect("connect", self, "new_connection")
 	server.connect("message", self, "new_message_server")
 	

@@ -1,7 +1,7 @@
 
 extends Reference
 
-const ReadWriteLock = preload("ReadWriteLock.gd")
+const ReadWriteLock = preload("../ReadWriteLock.gd")
 
 
 var tcp_stream = StreamPeerTCP.new()
