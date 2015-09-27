@@ -6,7 +6,26 @@ var client = preload("res://lib/tcp/client.gd").new()
 
 var client_on = false
 
+export var symbol_color = Color(255,255,255)
+export var outgoing_color = Color(255,0,255)
+export var incoming_color = Color(0,255,255)
+
+
 func _ready():
+	for screen in get_children():
+		var console = screen.get_node("Result")
+		if console and console extends TextEdit:
+			console.set_text(str("----", screen.get_name(), " log----"))
+			console.set_readonly(true)
+			console.set_wrap(true)
+			console.set_max_chars(20)
+			console.set_syntax_coloring(true)
+			console.set_symbol_color(symbol_color)
+			console.add_keyword_color("Sent", outgoing_color)
+			console.add_keyword_color("message", outgoing_color)
+			console.add_keyword_color("response", outgoing_color)
+			console.add_keyword_color("Received", incoming_color)
+
 	server.connect("connect", self, "new_connection")
 	server.connect("message", self, "new_message_server")
 	
@@ -44,18 +63,25 @@ func new_connection(id):
 	add_server_result(str(id, " Connected!"))
 
 func new_message_client(msg):
-	add_client_result(str("Received: ", msg.to_json()))
+	add_client_result(str("Received:     ", msg.to_json(), "\n"))
 
 func new_message_server(id, msg):
-	add_server_result(str("Received: ", msg.to_json()))
+	add_server_result(str("Received:     ", msg.to_json()))
+
+	var response = false
+
 	if msg.has("get") and msg.get == "inventory":
-		server.send_to(id, {"items": ["Old boots", "Raw fish", "Lenses", "Hat", "Rusty dagger"]})
+		response = {"items": ["Old boots", "Raw fish", "Lenses", "Hat", "Rusty dagger"]}
 	if msg.has("action") and msg.action == "skill":
-		server.send_to(id, {"error": "Not enough mana!"})
+		response = {"error": "Not enough mana!"}
 	if msg.has("action") and msg.action == "attack":
-		server.send_to(id, {"ok": true})
+		response = {"ok": true}
 	if msg.has("chat"):
-		add_server_result(str("<", id, "> : ", msg.chat))
+		add_server_result(str("<", id, "> : ", msg.chat, "\n"))
+
+	if response != false:
+		add_server_result(str("Sent response: ", response.to_json(), "\n"))
+		server.send_to(id, response)
 
 
 func add_server_result(r):
