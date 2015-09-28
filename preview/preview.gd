@@ -58,6 +58,19 @@ func send_client():
 		add_client_result(str("Sent message: ", msg.to_json()))
 	else:
 		add_client_result("Turn on first, please!")
+		
+func send_server():
+	var possible_messages = [
+		{"dead": str("rat-", floor(rand_range(0, 42)))},
+		{"move": str("rat-", floor(rand_range(0, 42))), "amount": [0, 1]},
+		{"move": str("rat-", floor(rand_range(0, 42))), "amount": [0, -1]},
+		{"move": str("rat-", floor(rand_range(0, 42))), "amount": [1, 0]},
+		{"move": str("rat-", floor(rand_range(0, 42))), "amount": [-1, 0]},
+		{"notification": str("A new level was added to the collection!"), "from": "!level_bot"}
+	]
+	var msg = possible_messages[rand_range(0, possible_messages.size())]
+	server.send_to_all(msg)
+	add_server_result(str("Sent message: ", msg.to_json()))
 
 func new_connection(id):
 	add_server_result(str(id, " Connected!"))

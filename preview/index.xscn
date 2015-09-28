@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://preview/preview.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://preview/res/FiraMono-Medium.fnt" type="Font" index="1"></ext_resource>
+	<ext_resource path="res://preview/preview.gd" type="Script" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
-			<int> 3 </int>
+			<int> 4 </int>
 			<string> "conns" </string>
-			<int_array  len="18"> 				2, 0, 28, 27, 2, 0, 5, 0, 28, 29, 2, 0, 6, 0, 28, 30, 2, 0 </int_array>
+			<int_array  len="24"> 				2, 0, 28, 27, 2, 0, 3, 0, 28, 29, 2, 0, 6, 0, 28, 30, 2, 0, 7, 0, 28, 31, 2, 0 </int_array>
 			<string> "names" </string>
-			<string_array  len="31">
+			<string_array  len="32">
 				<string> "Playground" </string>
 				<string> "Control" </string>
 				<string> "anchor/right" </string>
@@ -30,24 +30,25 @@
 				<string> "toggle_mode" </string>
 				<string> "text" </string>
 				<string> "flat" </string>
+				<string> "Send" </string>
+				<string> "margin/top" </string>
 				<string> "Result" </string>
 				<string> "TextEdit" </string>
-				<string> "margin/top" </string>
 				<string> "custom_fonts/font" </string>
 				<string> "Client" </string>
 				<string> "anchor/left" </string>
-				<string> "Send" </string>
 				<string> "start_server" </string>
 				<string> "pressed" </string>
+				<string> "send_server" </string>
 				<string> "start_client" </string>
 				<string> "send_client" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 8 </int>
+			<int> 9 </int>
 			<string> "nodes" </string>
-			<int_array  len="192"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 10, 6, 11, 6, 12, 7, 0, 0, 0, 1, 13, -1, 6, 2, 8, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 1, 0, 15, 14, -1, 9, 2, 0, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 10, 19, 1, 0, 1, 0, 21, 20, -1, 8, 2, 0, 3, 0, 22, 11, 4, 1, 5, 2, 6, 3, 7, 3, 23, 12, 0, 0, 0, 1, 24, -1, 7, 25, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 4, 0, 15, 14, -1, 9, 2, 0, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 13, 19, 1, 0, 4, 0, 15, 26, -1, 10, 2, 0, 22, 14, 16, 15, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 16, 19, 1, 0, 4, 0, 21, 20, -1, 8, 2, 0, 3, 0, 22, 11, 4, 1, 5, 2, 6, 3, 7, 3, 23, 12, 0 </int_array>
+			<int_array  len="219"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 10, 6, 11, 7, 12, 8, 0, 0, 0, 1, 13, -1, 6, 2, 9, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 1, 0, 15, 14, -1, 9, 2, 0, 16, 10, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 11, 19, 1, 0, 1, 0, 15, 20, -1, 10, 2, 0, 21, 12, 16, 13, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 14, 19, 1, 0, 1, 0, 23, 22, -1, 8, 2, 0, 3, 0, 21, 15, 4, 1, 5, 2, 6, 3, 7, 3, 24, 16, 0, 0, 0, 1, 25, -1, 7, 26, 9, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 5, 0, 15, 14, -1, 9, 2, 0, 16, 10, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 17, 19, 1, 0, 5, 0, 15, 20, -1, 10, 2, 0, 21, 12, 16, 13, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 18, 18, 19, 1, 0, 5, 0, 23, 22, -1, 8, 2, 0, 3, 0, 21, 15, 4, 1, 5, 2, 6, 3, 7, 3, 24, 16, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
+			<array  len="19" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -55,7 +56,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -190,15 +191,17 @@
 					</dictionary>
 				</dictionary>
 				<color> 255, 255, 255, 1 </color>
+				<color> 0, 1, 1, 1 </color>
 				<color> 255, 0, 255, 1 </color>
 				<int> 3 </int>
 				<real> 41 </real>
 				<string> "Start Server" </string>
+				<real> 50 </real>
+				<real> 91 </real>
+				<string> "Send message to all" </string>
 				<real> 100 </real>
 				<resource  external="1">  </resource>
 				<string> "Start Client" </string>
-				<real> 50 </real>
-				<real> 91 </real>
 				<string> "Send message" </string>
 			</array>
 			<string> "version" </string>

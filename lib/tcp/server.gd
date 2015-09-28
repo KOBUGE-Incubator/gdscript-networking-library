@@ -5,6 +5,7 @@ const ReadWriteLock = preload("../ReadWriteLock.gd")
 
 var tcp_server
 var server_running
+var global_message_queue = []
 var M_tcp_server = Mutex.new()
 
 var connections = []
@@ -54,7 +55,12 @@ func loop(data):
 			
 			for message in connection.message_queue:
 				connection.packet_peer.put_var(message)
+			
+			for message in global_message_queue:
+				connection.packet_peer.put_var(message)
+				
 			connection.message_queue.clear()
+			global_message_queue.clear()
 		
 		M_tcp_server.unlock()
 		OS.delay_msec(100)
@@ -70,6 +76,13 @@ func send_to(id, message):
 	M_tcp_server.lock()
 	
 	connections[id].message_queue.push_back(message)
+	
+	M_tcp_server.unlock()
+
+func send_to_all(message):
+	M_tcp_server.lock()
+	
+	global_message_queue.push_back(message)
 	
 	M_tcp_server.unlock()
 
