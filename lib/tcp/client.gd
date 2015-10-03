@@ -13,7 +13,6 @@ var M_tcp_stream = Mutex.new()
 var loop_thread = Thread.new()
 
 func _init():
-	add_user_signal("start")
 	add_user_signal("message", [{"message": TYPE_DICTIONARY}])
 	
 func connect_to(host, port):
@@ -51,7 +50,7 @@ func send(message):
 	
 	M_tcp_stream.unlock()
 
-func stop(port):
+func stop():
 	M_tcp_stream.lock()
 	
 	client_running = false

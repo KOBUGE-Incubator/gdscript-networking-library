@@ -16,7 +16,6 @@ var loop_thread = Thread.new()
 func _init():
 	tcp_server = TCP_Server.new()
 	
-	add_user_signal("start")
 	add_user_signal("connect", [{"id": TYPE_INT}])
 	add_user_signal("message", [{"id": TYPE_INT}, {"message": TYPE_DICTIONARY}])
 	
@@ -66,7 +65,7 @@ func loop(data):
 		M_tcp_server.unlock()
 		OS.delay_msec(100)
 
-func stop(port):
+func stop():
 	M_tcp_server.lock()
 	
 	server_running = false
