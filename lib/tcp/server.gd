@@ -60,7 +60,8 @@ func loop(data):
 				connection.packet_peer.put_var(message)
 				
 			connection.message_queue.clear()
-			global_message_queue.clear()
+		
+		global_message_queue.clear()
 		
 		M_tcp_server.unlock()
 		OS.delay_msec(100)
