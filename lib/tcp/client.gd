@@ -1,74 +1,36 @@
 
-extends Reference
+extends "../shared/client.gd"
 
 const ReadWriteLock = preload("../ReadWriteLock.gd")
 
-
-var tcp_stream = StreamPeerTCP.new()
-var packet_peer = PacketPeerStream.new()
-var M_tcp_stream = Mutex.new()
-
-var message_queue = []
-var M_message_queue = Mutex.new()
-
-var client_running
-var M_client_running = Mutex.new()
-
-var loop_thread = Thread.new()
-
-func _init():
-	add_user_signal("message", [{"message": TYPE_DICTIONARY}])
-	
-func connect_to(host, port):
-	M_tcp_stream.lock()
-	
-	if not client_running:
-		tcp_stream.connect(host, port)
-		packet_peer.set_stream_peer(tcp_stream)
-		client_running = true
-		loop_thread.start(self, "loop")
-	
-	M_tcp_stream.unlock()
-
-func send(message):
-	M_message_queue.lock()
-	
-	message_queue.push_back(message)
-	
-	M_message_queue.unlock()
-
-func stop():
-	M_client_running.lock()
-	
-	client_running = false
-	
-	M_client_running.unlock()
-
-func loop(data):
-	while true:
-		M_tcp_stream.lock()
-		M_client_running.lock()
-		if not client_running:
-			M_client_running.unlock()
-			
-			tcp_stream.disconnect()
-			M_tcp_stream.unlock()
-			break;
-		else:
-			M_client_running.unlock()
+class Connection:
+	var stream
+	var packet_peer
+	var connected = false
+	static func create(stream):
+		var new_self = new()
+		new_self.stream = stream
 		
-		while packet_peer.get_available_packet_count():
-			emit_signal("message", packet_peer.get_var())
+		new_self.packet_peer = PacketPeerStream.new()
+		new_self.packet_peer.set_stream_peer(stream)
 		
-		M_message_queue.lock()
-		
-		for message in message_queue:
-			packet_peer.put_var(message)
-		message_queue.clear()
-		
-		M_message_queue.unlock()
-		
-		M_tcp_stream.unlock()
-		OS.delay_msec(100)
+		return new_self
 
+func _start_connection(host, port):
+	var stream = StreamPeerTCP.new()
+	stream.connect(host, port)
+	
+	connection = Connection.create(stream)
+
+func _stop_connection():
+	connection.stream.disconnect()
+	connection = null
+
+func _update_connection():
+	while connection.packet_peer.get_available_packet_count():
+		emit_signal("message", connection.packet_peer.get_var())
+
+func _send_messages(messages):
+	for message in messages:
+		connection.packet_peer.put_var(message)
 
