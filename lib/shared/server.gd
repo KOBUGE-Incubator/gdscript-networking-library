@@ -79,6 +79,8 @@ func stop():
 	running = false
 	
 	M_running.unlock()
+	
+	loop_thread.wait_to_finish()
 
 func loop(data):
 	while true:
