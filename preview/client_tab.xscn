@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://preview/res/FiraMono-Medium.fnt" type="Font" index="1"></ext_resource>
 	<ext_resource path="res://preview/client_tab.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://preview/res/FiraMono-Medium.fnt" type="Font" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -45,9 +45,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="131"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 1, 5, 1, 6, 1, 7, 2, 8, 3, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 13, 14, -1, 7, 5, 7, 6, 8, 15, 9, 7, 2, 8, 3, 9, 4, 10, 4, 0, 1, 0, 20, 16, -1, 10, 5, 7, 6, 10, 15, 11, 7, 2, 8, 3, 9, 4, 10, 4, 17, 3, 18, 12, 19, 2, 0, 1, 0, 20, 21, -1, 11, 4, 13, 5, 7, 6, 14, 15, 11, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 18, 15, 19, 2, 0, 0, 0, 24, 22, -1, 8, 4, 16, 5, 7, 6, 17, 7, 2, 8, 3, 9, 4, 10, 18, 23, 19, 0 </int_array>
+			<int_array  len="131"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 1, 5, 1, 6, 1, 7, 2, 8, 3, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 13, 14, -1, 7, 1, 0, 6, 7, 15, 8, 7, 2, 8, 3, 9, 4, 10, 4, 0, 1, 0, 20, 16, -1, 10, 1, 0, 6, 9, 15, 10, 7, 2, 8, 3, 9, 4, 10, 4, 17, 3, 18, 11, 19, 2, 0, 1, 0, 20, 21, -1, 11, 1, 0, 4, 12, 6, 13, 15, 10, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 18, 14, 19, 2, 0, 0, 0, 24, 22, -1, 8, 1, 0, 2, 0, 4, 15, 7, 2, 8, 3, 9, 4, 10, 16, 23, 17, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="18" shared="false">
 				<int> 1 </int>
 				<real> 4 </real>
 				<bool> False </bool>
@@ -56,13 +56,13 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -314.776, -107.701 </vector2>
+							<vector2> -1078.74, -345.453 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -82,7 +82,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.108033 </real>
+							<real> 0.54036 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -190,7 +190,6 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 792 </real>
 				<real> 70 </real>
 				<vector2> 0, 70 </vector2>
 				<real> 32 </real>
@@ -200,7 +199,6 @@
 				<real> 68 </real>
 				<string> "Send message" </string>
 				<real> 74 </real>
-				<real> 592 </real>
 				<int> 3 </int>
 				<resource  external="1">  </resource>
 			</array>

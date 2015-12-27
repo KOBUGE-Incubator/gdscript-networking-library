@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://preview/res/FiraMono-Medium.fnt" type="Font" index="1"></ext_resource>
 	<ext_resource path="res://preview/server_tab.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://preview/res/FiraMono-Medium.fnt" type="Font" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -52,9 +52,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="187"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 1, 5, 1, 6, 1, 7, 2, 8, 3, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 13, 14, -1, 7, 5, 7, 6, 8, 15, 9, 7, 2, 8, 3, 9, 4, 10, 4, 0, 1, 0, 20, 16, -1, 10, 5, 7, 6, 10, 15, 11, 7, 2, 8, 3, 9, 4, 10, 4, 17, 3, 18, 12, 19, 2, 0, 1, 0, 13, 21, -1, 8, 4, 13, 5, 7, 6, 14, 15, 11, 7, 2, 8, 3, 9, 4, 10, 4, 0, 3, 0, 20, 22, -1, 11, 1, 15, 2, 0, 5, 16, 15, 11, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 18, 17, 19, 2, 0, 3, 0, 28, 23, -1, 13, 24, 15, 1, 0, 2, 0, 3, 18, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 19, 2, 25, 19, 26, 20, 27, 21, 0, 0, 0, 31, 29, -1, 8, 4, 22, 5, 7, 6, 23, 7, 2, 8, 3, 9, 4, 10, 15, 30, 24, 0 </int_array>
+			<int_array  len="187"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 1, 5, 1, 6, 1, 7, 2, 8, 3, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 13, 14, -1, 7, 1, 0, 6, 7, 15, 8, 7, 2, 8, 3, 9, 4, 10, 4, 0, 1, 0, 20, 16, -1, 10, 1, 0, 6, 9, 15, 10, 7, 2, 8, 3, 9, 4, 10, 4, 17, 3, 18, 11, 19, 2, 0, 1, 0, 13, 21, -1, 8, 1, 0, 4, 12, 6, 13, 15, 10, 7, 2, 8, 3, 9, 4, 10, 4, 0, 3, 0, 20, 22, -1, 11, 1, 14, 2, 0, 5, 15, 15, 10, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 18, 16, 19, 2, 0, 3, 0, 28, 23, -1, 13, 24, 14, 1, 0, 2, 0, 3, 17, 7, 2, 8, 3, 9, 4, 10, 4, 17, 2, 19, 2, 25, 18, 26, 19, 27, 20, 0, 0, 0, 31, 29, -1, 8, 1, 0, 2, 0, 4, 21, 7, 2, 8, 3, 9, 4, 10, 14, 30, 22, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="25" shared="false">
+			<array  len="23" shared="false">
 				<int> 1 </int>
 				<real> 4 </real>
 				<bool> False </bool>
@@ -69,7 +69,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> 19.6042, -190.335 </vector2>
+							<vector2> -279.919, -271.487 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -89,7 +89,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.360374 </real>
+							<real> 0.814506 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -197,7 +197,6 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 792 </real>
 				<real> 70 </real>
 				<vector2> 0, 70 </vector2>
 				<real> 32 </real>
@@ -214,7 +213,6 @@
 				<array  len="0" shared="false">
 				</array>
 				<real> 74 </real>
-				<real> 592 </real>
 				<resource  external="1">  </resource>
 			</array>
 			<string> "version" </string>
