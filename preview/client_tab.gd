@@ -1,7 +1,7 @@
 
 extends Control
 
-var client = preload("res://lib/tcp/client.gd").new()
+var client = preload("res://lib/udp/client.gd").new()
 
 func _ready():
 	get_node("Buttons/Send").connect("pressed", self, "send")

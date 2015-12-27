@@ -2,6 +2,7 @@
 extends Reference
 
 const ReadWriteLock = preload("../ReadWriteLock.gd")
+const constants = preload("constants.gd")
 
 class RawMessage:
 	var target = null
@@ -22,6 +23,7 @@ var next_id = 0
 var RW_connections = ReadWriteLock.new()
 
 var message_queue = []
+var _internal_message_queue = []
 var M_message_queue = Mutex.new()
 
 var loop_thread = Thread.new()
@@ -51,7 +53,6 @@ func start(port):
 	
 	M_running.unlock()
 
-
 func send_to(id, data):
 	var message = RawMessage.new()
 	message.target = id
@@ -72,6 +73,13 @@ func send_to_all(data):
 	message_queue.push_back(message)
 	
 	M_message_queue.unlock()
+
+func _send_internal(id, data):
+	var message = RawMessage.new()
+	message.target = id
+	message.data = data
+	
+	_internal_message_queue.push_back(message)
 
 func stop():
 	M_running.lock()
@@ -113,7 +121,11 @@ func loop(data):
 		
 		_send_messages(_messages)
 		
+		_messages = _internal_message_queue
+		_internal_message_queue = []
+		_send_messages(_messages)
+		
 		RW_connections.unlock_read()
 		
 		M_server.unlock()
-		OS.delay_msec(100)
+		OS.delay_msec(constants.TICK_TIME)

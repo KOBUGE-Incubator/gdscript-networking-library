@@ -2,6 +2,7 @@
 extends Reference
 
 const ReadWriteLock = preload("../ReadWriteLock.gd")
+const constants = preload("constants.gd")
 
 signal connect()
 signal disconnect()
@@ -11,6 +12,7 @@ var connection
 var M_connection = Mutex.new()
 
 var message_queue = []
+var _internal_message_queue = []
 var M_message_queue = Mutex.new()
 
 var running
@@ -50,6 +52,9 @@ func send(message):
 	
 	M_message_queue.unlock()
 
+func _send_internal(message):
+	_internal_message_queue.push_back(message)
+
 func stop():
 	M_running.lock()
 	
@@ -85,5 +90,9 @@ func loop(data):
 		
 		_send_messages(_messages)
 		
+		_messages = _internal_message_queue
+		_internal_message_queue = []
+		_send_messages(_messages)
+		
 		M_connection.unlock()
-		OS.delay_msec(100)
+		OS.delay_msec(constants.TICK_TIME)
